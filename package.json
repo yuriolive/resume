@@ -1,0 +1,23 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "description": "Scalable Markdown-managed resume hosted on Cloudflare Pages",
+  "type": "module",
+  "author": "Yuri Olive",
+  "license": "MIT",
+  "scripts": {
+    "build": "bun run scripts/parse-resume.ts"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "@jsonresume/core": "^0.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.0.10",
+    "playwright": "^1.57.0"
+  }
+}
