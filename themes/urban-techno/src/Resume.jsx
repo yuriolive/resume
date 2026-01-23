@@ -96,6 +96,7 @@ const ContactItem = styled.div`
 const MainGrid = styled.div`
   display: grid;
   grid-template-columns: 280px 1fr;
+  width: 100%;
 `;
 
 const Sidebar = styled.aside`
@@ -105,9 +106,10 @@ const Sidebar = styled.aside`
 
 const MainContent = styled.main`
   background: white;
+  min-width: 0;
 `;
 
-const SidebarSection = styled(Section)`
+const SidebarSection = styled.div`
   border-bottom: 1px solid #999;
 
   &:last-child {
@@ -115,13 +117,13 @@ const SidebarSection = styled(Section)`
   }
 `;
 
-const SidebarSectionTitle = styled(SectionTitle)`
+const SidebarSectionTitle = styled.h2`
   background: #111;
   color: white;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 900;
   margin: 0;
-  padding: 8px 16px;
+  padding: 10px 16px;
   text-transform: uppercase;
   letter-spacing: 1px;
 `;
@@ -132,6 +134,7 @@ const SidebarContent = styled.div`
 
 const SkillItem = styled.div`
   margin-bottom: 12px;
+  break-inside: avoid;
 
   &:last-child {
     margin-bottom: 0;
@@ -153,8 +156,8 @@ const StyledBadgeList = styled(BadgeList)`
 `;
 
 const StyledBadge = styled(Badge)`
-  font-size: 9px;
-  padding: 4px 8px;
+  font-size: 10px;
+  padding: 3px 6px;
   background: white;
   border: 1px solid #111;
   color: #111;
@@ -165,7 +168,7 @@ const StyledBadge = styled(Badge)`
   white-space: nowrap;
 `;
 
-const MainSection = styled(Section)`
+const MainSection = styled.div`
   border-bottom: 2px solid #111;
 
   &:last-child {
@@ -173,7 +176,7 @@ const MainSection = styled(Section)`
   }
 `;
 
-const MainSectionTitle = styled(SectionTitle)`
+const MainSectionTitle = styled.h2`
   background: #111;
   color: white;
   font-size: 13px;
@@ -188,6 +191,7 @@ const WorkGrid = styled.div`
   display: grid;
   grid-template-columns: 160px 1fr;
   border-bottom: 1px solid #666;
+  break-inside: avoid;
 
   &:last-child {
     border-bottom: none;
@@ -333,6 +337,15 @@ function Resume({ resume }) {
 
       <MainGrid>
         <Sidebar>
+          {basics.summary && (
+            <SidebarSection>
+              <SidebarSectionTitle>Summary</SidebarSectionTitle>
+              <SidebarContent>
+                <WorkDescription dangerouslySetInnerHTML={{ __html: parseMarkdown(basics.summary) }} />
+              </SidebarContent>
+            </SidebarSection>
+          )}
+
           {skills.length > 0 && (
             <SidebarSection>
               <SidebarSectionTitle>Skills</SidebarSectionTitle>
@@ -382,15 +395,6 @@ function Resume({ resume }) {
         </Sidebar>
 
         <MainContent>
-          {basics.summary && (
-            <MainSection>
-              <MainSectionTitle>Summary</MainSectionTitle>
-              <ContentColumn>
-                <WorkDescription dangerouslySetInnerHTML={{ __html: parseMarkdown(basics.summary) }} />
-              </ContentColumn>
-            </MainSection>
-          )}
-
           {work.length > 0 && (
             <MainSection>
               <MainSectionTitle>Experience</MainSectionTitle>
