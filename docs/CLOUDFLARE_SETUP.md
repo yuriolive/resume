@@ -22,7 +22,9 @@ This guide walks you through the step-by-step process of configuring Cloudflare 
 
    > **Alternative method**: Go to any Workers & Pages section, and your Account ID will be visible in the URL or sidebar.
 
-## Step 2: Create a Cloudflare API Token
+## Step 2: Create a Cloudflare API Token with Minimal Permissions
+
+For security best practices, we'll create a custom API token with only the permissions needed for Cloudflare Pages deployment.
 
 1. **Navigate to API Tokens**
    - Click on your profile icon (top right)
@@ -30,25 +32,44 @@ This guide walks you through the step-by-step process of configuring Cloudflare 
    - Click on the **API Tokens** tab in the left sidebar
    - Or go directly to: [dash.cloudflare.com/profile/api-tokens](https://dash.cloudflare.com/profile/api-tokens)
 
-2. **Create a New Token**
+2. **Create a Custom Token**
    - Click **Create Token**
-   - Look for **Edit Cloudflare Workers** template or **Create Custom Token**
+   - Click **Create Custom Token** (do NOT use a template)
 
-3. **Configure Token Permissions**
+3. **Configure Minimal Permissions**
 
-   If using a custom token, set these permissions:
-   - **Account** → **Cloudflare Pages** → **Edit**
+   Set ONLY these permissions for the token:
 
-   > **Note**: For stricter security, you can also limit the token to specific accounts.
+   | Permission Type | Resource         | Permission Level |
+   | --------------- | ---------------- | ---------------- |
+   | Account         | Cloudflare Pages | Edit             |
 
-4. **Set Token Settings**
-   - **Token name**: `GitHub Actions Resume Deployment` (or any name you prefer)
-   - **TTL (Time to Live)**: Choose an expiration or set to never expire
-   - **IP Address Filtering**: (Optional) Leave blank unless you want to restrict by IP
+   **How to add this permission:**
+   - Under **Permissions**, click **+ Add more**
+   - In the first dropdown, select **Account**
+   - In the second dropdown, select **Cloudflare Pages**
+   - In the third dropdown, select **Edit**
 
-5. **Create and Copy Token**
+   > **✅ Security Note**: This is the absolute minimum permission required for deploying to Cloudflare Pages via GitHub Actions. Do NOT add additional permissions.
+
+4. **Configure Account Resources** (Optional but Recommended)
+   - Under **Account Resources**, select **Include** → **Specific account**
+   - Choose your specific Cloudflare account from the dropdown
+   - This limits the token to only work with your specific account
+
+5. **Set Token Settings**
+   - **Token name**: `GitHub Actions Resume Deployment`
+   - **TTL (Time to Live)**:
+     - **Recommended**: Set to **1 year** for automatic rotation
+     - Or set to **Never expire** if you prefer (requires manual rotation)
+   - **IP Address Filtering**: Leave blank (GitHub Actions uses dynamic IPs)
+
+6. **Review and Create Token**
    - Click **Continue to summary**
-   - Review the permissions
+   - Verify the summary shows:
+     - ✅ Permissions: `Account - Cloudflare Pages - Edit`
+     - ✅ Account Resources: Your specific account (if configured)
+     - ✅ No additional permissions listed
    - Click **Create Token**
    - **⚠️ IMPORTANT**: Copy the token immediately - you won't be able to see it again!
    - Save this token securely - you'll need it for GitHub secrets
