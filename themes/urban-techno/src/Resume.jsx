@@ -25,8 +25,14 @@ const Layout = styled.div`
 
   @media print {
     max-width: none;
-    margin: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     border: none;
+    
+    @page {
+      margin: 0;
+      size: auto;
+    }
   }
 `;
 
@@ -272,8 +278,10 @@ const parseMarkdown = (text) => {
 };
 
 const formatProfileUrl = (url, network) => {
-  if (network.toLowerCase() === 'linkedin') {
-    return url.replace(/https?:\/\/(www\.)?linkedin\.com/, '');
+  const net = network.toLowerCase();
+  if (net === 'linkedin' || net === 'github') {
+    const handle = url.split('/').filter(Boolean).pop();
+    return `@${handle}`;
   }
   return url;
 };

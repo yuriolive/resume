@@ -18,7 +18,8 @@ export function render(resume) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
   ${styles}
+<style>body { margin: 0; padding: 0; }</style>
 </head>
-<body>${html}</body>
+<body style="margin: 0; padding: 0;">${html}</body>
 </html>`;
 }
