@@ -3,7 +3,7 @@ import path from 'path';
 
 async function generatePdf() {
   const htmlPath = path.resolve('public/index.html');
-  const pdfPath = path.resolve('resume.pdf');
+  const pdfPath = path.resolve('public/resume.pdf');
 
   console.log('Launching Chromium with Node...');
   const browser = await chromium.launch({
