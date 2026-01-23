@@ -12,6 +12,9 @@ profiles:
   - network: github
     username: yuriolive
     url: https://github.com/yuriolive
+  - network: calendly
+    username: yuriolive
+    url: https://calendly.com/yuriolive
 summary: |
   Lead Data Engineer with over 8 years of experience architecting scalable data pipelines and AI/ML solutions. Proven track record of managing data infrastructures for organizations of up to **tens of thousands** employees and handling data volumes exceeding **terabytes**. Expert in modernizing ELT frameworks and cloud-native architectures to drive increase in operational efficiency.
 

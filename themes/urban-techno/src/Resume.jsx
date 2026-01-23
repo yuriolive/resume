@@ -157,13 +157,14 @@ const Tagline = styled.div`
 const ContactSection = styled.div`
   padding: 24px;
   background: white;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 12px 24px;
+  align-items: start;
 
   @media screen and (max-width: 768px) {
     padding: 16px;
+    grid-template-columns: 1fr;
     gap: 8px;
     border-bottom: 2px solid #111;
   }
@@ -174,16 +175,27 @@ const ContactItem = styled.div`
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
   @media screen and (max-width: 768px) {
     font-size: 10px;
-    text-align: center;
+    justify-content: center;
+  }
+
+  svg {
+    opacity: 0.6;
+    flex-shrink: 0;
   }
 
   a {
     color: #111;
     text-decoration: none;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &:hover {
       border-bottom-color: #111;
@@ -477,6 +489,57 @@ const ExportButton = styled.button`
   }
 `;
 
+const BookButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #111;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  border: 1px solid #111;
+  margin-top: 4px;
+  width: fit-content;
+
+  svg {
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    background: white;
+    color: #111;
+    
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  @media print {
+    border-color: #111;
+    background: white !important;
+    color: #111 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    padding: 6px 12px;
+    font-size: 9px;
+    
+    svg {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 8px auto 0 auto;
+    font-size: 11px;
+    padding: 10px 20px;
+  }
+`;
+
 const parseMarkdown = (text) => {
   if (!text) return "";
   return marked.parse(text, { breaks: true, gfm: true });
@@ -489,6 +552,9 @@ const formatProfileUrl = (url, network) => {
   }
   if (net === "github") {
     return url.replace(/https?:\/\/(www\.)?github\.com/, "");
+  }
+  if (net === "calendly") {
+    return url.replace(/https?:\/\/(www\.)?calendly\.com/, "");
   }
   return url;
 };
@@ -508,6 +574,42 @@ function Resume({ resume }) {
     references = [],
   } = resume;
 
+  const calendlyProfile = basics.profiles?.find(p => p.network.toLowerCase() === 'calendly');
+  const otherProfiles = basics.profiles?.filter(p => p.network.toLowerCase() !== 'calendly') || [];
+
+  const icons = {
+    email: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+      </svg>
+    ),
+    phone: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+    ),
+    location: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+    ),
+    web: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+    ),
+    linkedin: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+      </svg>
+    ),
+    github: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.011-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.362.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12z"/>
+      </svg>
+    )
+  };
+
   return (
     <Layout>
       <Waves />
@@ -524,29 +626,55 @@ function Resume({ resume }) {
         <ContactSection>
           {basics.email && (
             <ContactItem>
-              EMAIL: <a href={`mailto:${basics.email}`}>{basics.email}</a>
+              {icons.email} <a href={`mailto:${basics.email}`}>{basics.email}</a>
             </ContactItem>
           )}
-          {basics.phone && <ContactItem>PHONE: {basics.phone}</ContactItem>}
-          {basics.location?.city && basics.location?.region && (
+          {otherProfiles.find(p => p.network.toLowerCase() === 'linkedin') && (
             <ContactItem>
-              LOCATION: {basics.location.city}, {basics.location.region}
-              {basics.location.country && `, ${basics.location.country}`}
+              {icons.linkedin} 
+              <a href={safeUrl(otherProfiles.find(p => p.network.toLowerCase() === 'linkedin').url)}>
+                {formatProfileUrl(otherProfiles.find(p => p.network.toLowerCase() === 'linkedin').url, 'linkedin')}
+              </a>
+            </ContactItem>
+          )}
+          {basics.location?.city && (
+            <ContactItem>
+              {icons.location} {basics.location.city}, {basics.location.region}
+            </ContactItem>
+          )}
+          {otherProfiles.find(p => p.network.toLowerCase() === 'github') && (
+            <ContactItem>
+              {icons.github} 
+              <a href={safeUrl(otherProfiles.find(p => p.network.toLowerCase() === 'github').url)}>
+                {formatProfileUrl(otherProfiles.find(p => p.network.toLowerCase() === 'github').url, 'github')}
+              </a>
             </ContactItem>
           )}
           {basics.url && (
             <ContactItem>
-              WEB: <a href={safeUrl(basics.url)}>{basics.url}</a>
+              {icons.web} <a href={safeUrl(basics.url)}>{basics.url.replace(/^https?:\/\//, '')}</a>
             </ContactItem>
           )}
-          {basics.profiles?.map((profile, index) => (
-            <ContactItem key={index}>
-              {profile.network.toUpperCase()}:{" "}
-              <a href={safeUrl(profile.url)}>
-                {formatProfileUrl(profile.url, profile.network)}
-              </a>
-            </ContactItem>
-          ))}
+          {calendlyProfile && (
+            <BookButton href={safeUrl(calendlyProfile.url)} target="_blank" rel="noopener noreferrer">
+              <svg 
+                width="14" 
+                height="14" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2.5" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              Book a Time
+            </BookButton>
+          )}
         </ContactSection>
       </Header>
 
