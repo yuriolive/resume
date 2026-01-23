@@ -136,11 +136,20 @@ async function parseResume() {
       }
 
       const headerContent = line.replace('## ', '');
-      const [position, company] = headerContent.split('@').map(s => s.trim());
+      const [posComp, urlPart] = headerContent.split('(');
+      const [position, company] = posComp.split('@').map(s => s.trim());
+      let companyUrl = '';
+      if (urlPart) {
+        companyUrl = urlPart.replace(')', '').trim();
+        if (!companyUrl.startsWith('http')) {
+          companyUrl = `https://${companyUrl}`;
+        }
+      }
 
       currentWork = {
         position: position || '',
         name: company || '',
+        url: companyUrl,
         startDate: '',
         endDate: '',
         highlights: []

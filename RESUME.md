@@ -61,7 +61,7 @@ certificates:
 
 # EXPERIENCE
 
-## Lead Data Engineer @ Correlation One
+## Lead Data Engineer @ Correlation One (correlationone.com)
 
 _April 2023 – Present_
 
@@ -71,7 +71,7 @@ _April 2023 – Present_
 - **Integrated** the Expert App and Grading Service databases into a centralized BigQuery warehouse, enabling **[...]** internal stakeholders to access real-time performance metrics via dbt.
 - **Standardized** production environments by implementing Infrastructure-as-Code (Terraform) and CI/CD (GitHub Actions), which reduced deployment failure rates by **[...]%**.
 
-## Staff Data Engineer @ Authority.Org
+## Staff Data Engineer @ Authority.Org (authority.org)
 
 _December 2021 – February 2023_
 
@@ -79,14 +79,14 @@ _December 2021 – February 2023_
 - **Orchestrated** complex workflows using Airflow and Kubernetes, supporting a network of 5 context-rich websites (100k+ monthly active users) and improving their data-refresh frequency by **[...]%**.
 - **Improved** Google organic ranking for primary web assets by implementing a dimensionally modeled data structure that served context-rich metadata via a TypeScript GraphQL API.
 
-## Lead Data Engineer @ TRACTIAN
+## Lead Data Engineer @ TRACTIAN (tractian.com)
 
 _July 2021 – December 2021_
 
 - **Restructured** AWS cloud infrastructure and security using Terraform for **[...]** active sensors, preventing an estimated **[...]** hours of potential downtime.
 - **Decoupled** Python and NodeJS microservices using Apache Kafka (AWS MSK), enabling real-time processing of millions of events per second for predictive maintenance ML models.
 
-## Data Engineer @ McKinsey & Company
+## Data Engineer @ McKinsey & Company (mckinsey.com)
 
 _February 2020 – July 2021_
 
@@ -94,28 +94,28 @@ _February 2020 – July 2021_
 - **Engineered** a recommendation platform for a global shrimp producer using Kedro and GCP, increasing average product size by **[...]%** while reducing feed costs by **[...]%**.
 - **Resolved** critical production data issues for an industrial vessel fleet, ensuring 100% on-time delivery of data reports and avoiding potential financial penalties of **[...] USD**.
 
-## Data Specialist @ Stone
+## Data Specialist @ Stone (stone.co)
 
 _May 2019 – February 2020_
 
 - **Constructed** a scalable BigQuery Data Lake, reducing average query execution times from several days to **[...]** minutes for the finance department.
 - **Migrated** a legacy SQL Server warehouse to Snowflake, moving **[...] TB** of financial data while applying Kimball principles to improve cross-departmental reporting speed by **[...]%**.
 
-## Data Engineer @ Big Data Brasil
+## Data Engineer @ Big Data Brasil (bigdatabrasil.com.br)
 
 _June 2018 – May 2019_
 
 - **Engineered** a serverless data acquisition infrastructure on AWS (Lambda, SQS, S3) using Infrastructure-as-Code (CloudFormation), supporting the secure ingestion of **[...]** million records daily.
 - **Refactored** high-availability Python (Scrapy) web scrapers, increasing data collection success rates by **[...]%** across thousands of distinct public and private data sources.
 
-## Software Developer Intern / DBA @ Dolphin Enterprises Ltd
+## Software Developer Intern / DBA @ Dolphin Enterprises Ltd (dolphin.com.hk)
 
 _September 2017 – May 2018_
 
 - **Optimized** MS SQL Server stored procedures and migrated on-premise databases to **Azure SQL Elastic Pools**, resulting in a **[...]%** improvement in application responsiveness.
 - **Developed** a remote investor portal using **VB.NET (ASP.NET MVC 5)** and Entity Framework, providing secure data access to **[...]** external stakeholders.
 
-## Software Engineer Intern @ Odysci
+## Software Engineer Intern @ Odysci (odysci.com)
 
 _June 2015 – August 2015_
 

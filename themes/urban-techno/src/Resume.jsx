@@ -37,7 +37,7 @@ const Layout = styled.div`
 `;
 
 const WorkEntry = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   break-inside: avoid;
 
   &:last-child {
@@ -49,7 +49,30 @@ const WorkHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 2px;
+  margin-bottom: 8px;
+`;
+
+const WorkTitleSection = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+`;
+
+const WorkTextGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+`;
+
+const CompanyLogo = styled.img`
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  object-fit: contain;
+  background: white;
+  padding: 2px;
+  border: 1px solid #ddd;
+  margin-top: 2px;
 `;
 
 const Header = styled.header`
@@ -436,13 +459,24 @@ function Resume({ resume }) {
                 {work.map((item, index) => (
                   <WorkEntry key={index}>
                     <WorkHeader>
-                      <WorkTitle>{item.position}</WorkTitle>
+                      <WorkTitleSection>
+                        {item.url && (
+                          <CompanyLogo 
+                            src={`https://img.logo.dev/${new URL(item.url).hostname}?token=pk_CyyuO4QUShuOoZ1sHLG6Ow`} 
+                            alt={item.name} 
+                            onError={(e) => e.target.style.display = 'none'}
+                          />
+                        )}
+                        <WorkTextGroup>
+                          <WorkTitle>{item.position}</WorkTitle>
+                          <WorkCompany>{item.name}</WorkCompany>
+                        </WorkTextGroup>
+                      </WorkTitleSection>
                       <DateRange
                         startDate={item.startDate}
                         endDate={item.endDate}
                       />
                     </WorkHeader>
-                    <WorkCompany>{item.name}</WorkCompany>
                     <ContentColumn>
                       {item.summary && (
                         <WorkDescription
