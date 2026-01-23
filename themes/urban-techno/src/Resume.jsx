@@ -268,11 +268,22 @@ const ContentColumn = styled.div`
   min-width: 0;
 `;
 
-const WorkDescription = styled.p`
+const WorkDescription = styled.div`
   font-size: 13px;
   line-height: 1.5;
-  margin: 8px 0;
   color: #333;
+
+  p {
+    margin: 8px 0;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const HighlightsList = styled.ul`

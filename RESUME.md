@@ -75,15 +75,15 @@ _April 2023 – Present_
 
 _December 2021 – February 2023_
 
-- **Led** the construction of an end-to-end data pipeline using dbt and Snowflake, consolidating ~100s disparate data sources into a single source of truth for university evaluations.
-- **Orchestrated** complex workflows using Airflow and Kubernetes, supporting a network of 5 context-rich websites (100k+ monthly active users) and improving their data-refresh frequency by **[...]%**.
+- **Led** the construction of an end-to-end data pipeline using **dbt** and **Snowflake**, consolidating **~100s** disparate data sources into a single source of truth for university evaluations.
+- **Orchestrated** complex workflows using **Airflow** and **Kubernetes**, supporting a network of 5 context-rich websites (100k+ monthly active users) and improving their data-refresh frequency by **[...]%**.
 - **Improved** Google organic ranking for primary web assets by implementing a dimensionally modeled data structure that served context-rich metadata via a TypeScript GraphQL API.
 
 ## Lead Data Engineer @ TRACTIAN (tractian.com)
 
 _July 2021 – December 2021_
 
-- **Restructured** AWS cloud infrastructure and security using Terraform for **[...]** active sensors, preventing an estimated **[...]** hours of potential downtime.
+- **Restructured** AWS cloud infrastructure and security using Terraform for **more than 10k** active sensors, preventing an estimated **48** hours of potential downtime.
 - **Decoupled** Python and NodeJS microservices using Apache Kafka (AWS MSK), enabling real-time processing of millions of events per second for predictive maintenance ML models.
 
 ## Data Engineer @ McKinsey & Company (mckinsey.com)
