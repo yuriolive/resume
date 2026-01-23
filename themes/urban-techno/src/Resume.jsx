@@ -29,8 +29,9 @@ const Layout = styled.div`
     margin: 0 !important;
     padding: 0 !important;
     border: none;
-    background: white !important;
-    color: #000 !important;
+    background: #000 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
 
     @page {
       margin: 0;
@@ -38,7 +39,7 @@ const Layout = styled.div`
     }
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     font-size: 12px;
   }
 `;
@@ -51,7 +52,7 @@ const WorkEntry = styled.div`
     margin-bottom: 0;
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     margin-bottom: 20px;
   }
 `;
@@ -62,7 +63,7 @@ const WorkHeader = styled.div`
   align-items: flex-start;
   margin-bottom: 8px;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
     gap: 4px;
   }
@@ -90,7 +91,7 @@ const CompanyLogo = styled.img`
   border: 1px solid #ddd;
   margin-top: 2px;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     width: 28px;
     height: 28px;
   }
@@ -101,7 +102,7 @@ const Header = styled.header`
   grid-template-columns: 1fr 1fr;
   border-bottom: 2px solid #111;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     border-bottom: none;
   }
@@ -116,7 +117,7 @@ const NameSection = styled.div`
   align-items: center;
   gap: 20px;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     border-right: none;
     border-bottom: 2px solid #111;
     padding: 20px;
@@ -135,7 +136,7 @@ const Name = styled.h1`
   letter-spacing: 0.5px;
   line-height: 0.9;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     font-size: 28px;
   }
 `;
@@ -148,7 +149,7 @@ const Tagline = styled.div`
   letter-spacing: 1px;
   color: #666;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     margin: 4px 0 0 0;
   }
 `;
@@ -161,7 +162,7 @@ const ContactSection = styled.div`
   gap: 12px;
   justify-content: center;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     padding: 16px;
     gap: 8px;
     border-bottom: 2px solid #111;
@@ -174,7 +175,7 @@ const ContactItem = styled.div`
   text-transform: uppercase;
   letter-spacing: 0.5px;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     font-size: 10px;
     text-align: center;
   }
@@ -210,9 +211,10 @@ const MainGrid = styled.div`
       white 280px
     ) !important;
     border-color: #000 !important;
+    min-height: auto !important;
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     background: #e8e8e8;
   }
@@ -227,7 +229,7 @@ const MainContent = styled.main`
   min-width: 0;
   border-left: 2px solid #111;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     border-left: none;
     border-top: 2px solid #111;
   }
@@ -241,7 +243,7 @@ const ProfileImage = styled.img`
   border: 2px solid white;
   display: block;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     width: 60px;
     height: 60px;
   }
@@ -269,7 +271,7 @@ const SidebarSectionTitle = styled.h2`
 const SidebarContent = styled.div`
   padding: 16px;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     padding: 12px;
   }
 `;
@@ -328,7 +330,7 @@ const MainSectionTitle = styled.h2`
   text-transform: uppercase;
   letter-spacing: 1.2px;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     padding: 8px 16px;
   }
 `;
@@ -341,7 +343,7 @@ const WorkTitle = styled.h3`
   color: #111;
   flex: 1;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     font-size: 14px;
   }
 `;
@@ -364,7 +366,7 @@ const WorkDescription = styled.div`
   line-height: 1.5;
   color: #333;
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     font-size: 12px;
   }
 
@@ -394,7 +396,7 @@ const HighlightsList = styled.ul`
     position: relative;
     padding-left: 12px;
 
-    @media (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       font-size: 11px;
     }
 
@@ -466,7 +468,7 @@ const ExportButton = styled.button`
     display: none;
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     bottom: 24px;
     right: 24px;
     padding: 10px 18px;

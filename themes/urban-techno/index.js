@@ -20,7 +20,13 @@ export function render(resume) {
   ${styles}
 <style>
   body { margin: 0; padding: 0; background: #000; }
-  @media print { body { background: white !important; } }
+  @media print { 
+    html, body { 
+      background: #000 !important; 
+      -webkit-print-color-adjust: exact; 
+      print-color-adjust: exact; 
+    } 
+  }
 </style>
 </head>
 <body style="margin: 0; padding: 0;">
