@@ -306,6 +306,7 @@ function Resume({ resume }) {
           {basics.location?.city && basics.location?.region && (
             <ContactItem>
               LOCATION: {basics.location.city}, {basics.location.region}
+              {basics.location.country && `, ${basics.location.country}`}
             </ContactItem>
           )}
           {basics.url && (

@@ -15,6 +15,7 @@ location:
   city: "Jundiaí"
   countryCode: BR
   region: "São Paulo"
+  country: "Brazil"
 
 skills:
   - name: Programming Languages

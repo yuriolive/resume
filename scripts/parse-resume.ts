@@ -11,6 +11,7 @@ interface Location {
   city?: string;
   countryCode?: string;
   region?: string;
+  country?: string;
 }
 
 interface Profile {
@@ -105,7 +106,8 @@ async function parseResume() {
       location: frontmatter.location || {
         city: '',
         countryCode: '',
-        region: ''
+        region: '',
+        country: ''
       },
       profiles: frontmatter.profiles || []
     },
