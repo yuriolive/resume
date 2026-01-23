@@ -2,7 +2,7 @@ import React from 'react';
 
 export function Waves({
     className = "",
-    strokeColor = "#ffffff22",
+    strokeColor = "#ffffff66",
     backgroundColor = "transparent",
     pointerSize = 0.5
 }) {
