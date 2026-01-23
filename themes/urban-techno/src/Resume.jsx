@@ -11,13 +11,14 @@ import {
   Link,
   safeUrl,
 } from '@jsonresume/core';
+import Waves from './components/Waves.jsx';
 
 const Layout = styled.div`
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
   padding: 0;
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
   font-family: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
   color: #111;
   line-height: 1.4;
@@ -28,6 +29,7 @@ const Layout = styled.div`
     margin: 0 !important;
     padding: 0 !important;
     border: none;
+    background: #000 !important;
     
     @page {
       margin: 0;
@@ -139,8 +141,12 @@ const MainGrid = styled.div`
   display: grid;
   grid-template-columns: 280px 1fr;
   width: 100%;
-  background: linear-gradient(to right, #e8e8e8 280px, #e8e8e8 280px, white 280px);
+  background: linear-gradient(to right, rgba(232, 232, 232, 0.9) 280px, rgba(232, 232, 232, 0.9) 280px, transparent 280px);
   min-height: 100%;
+
+  @media print {
+    background: linear-gradient(to right, #e8e8e8 280px, #e8e8e8 280px, white 280px) !important;
+  }
 `;
 
 const Sidebar = styled.aside`
@@ -148,7 +154,7 @@ const Sidebar = styled.aside`
 `;
 
 const MainContent = styled.main`
-  background: white;
+  background: transparent;
   min-width: 0;
   border-left: 2px solid #111;
 `;
@@ -339,6 +345,7 @@ function Resume({ resume }) {
 
   return (
     <Layout>
+      <Waves />
       <Header>
         <NameSection>
           {basics.image && <ProfileImage src={basics.image} alt={basics.name} />}

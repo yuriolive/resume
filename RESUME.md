@@ -112,8 +112,8 @@ _June 2018 – May 2019_
 
 _September 2017 – May 2018_
 
-- **Optimized** MS SQL Server stored procedures and migrated on-premise databases to **Azure SQL Elastic Pools**, resulting in a **[...]%** improvement in application responsiveness.
-- **Developed** a remote investor portal using **VB.NET (ASP.NET MVC 5)** and Entity Framework, providing secure data access to **[...]** external stakeholders.
+- **Optimized** MS SQL Server stored procedures and migrated on-premise databases to **Azure SQL Elastic Pools**, resulting in a **20%** improvement in application responsiveness and **0** downtimes.
+- **Developed** a remote investor portal using **VB.NET (ASP.NET MVC 5)** and Entity Framework, providing secure data access to **more than 200** external stakeholders.
 
 ## Software Engineer Intern @ Odysci (odysci.com)
 
