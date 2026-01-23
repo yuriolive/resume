@@ -68,15 +68,15 @@ _April 2023 – Present_
 - **Spearheaded** the redesign of legacy data pipelines using Meltano, Scrapy, and Airflow, resulting in a **[...]%** reduction in infrastructure maintenance time and a **[...]%** improvement in data reliability.
 - **Architected** a custom data extraction solution for Slack to bypass 2FA and high-cost API limitations, saving the company **200k USD** per year in operational costs.
 - **Developed** a robust data pipeline for SMA Resume collection, implementing request-bypass logic that successfully processed **[...]** resumes for the recruitment team without hitting service limits.
-- **Integrated** the Expert App and Grading Service databases into a centralized BigQuery warehouse, enabling **[...]** internal stakeholders to access real-time performance metrics via dbt.
-- **Standardized** production environments by implementing Infrastructure-as-Code (Terraform) and CI/CD (GitHub Actions), which reduced deployment failure rates by **[...]%**.
+- **Integrated** the Expert App and Grading Service databases into a centralized BigQuery warehouse, enabling 50+ internal stakeholders to access real-time performance metrics via dbt, improving training performance by **10%** and saving the company **more than 100k USD** per year in operational costs.
+- **Standardized** production environments by implementing Infrastructure-as-Code (Terraform) and CI/CD (GitHub Actions), which reduced deployment failure rates.
 
 ## Staff Data Engineer @ Authority.Org (authority.org)
 
 _December 2021 – February 2023_
 
 - **Led** the construction of an end-to-end data pipeline using **dbt** and **Snowflake**, consolidating **~100s** disparate data sources into a single source of truth for university evaluations.
-- **Orchestrated** complex workflows using **Airflow** and **Kubernetes**, supporting a network of 5 context-rich websites (100k+ monthly active users) and improving their data-refresh frequency by **[...]%**.
+- **Orchestrated** complex workflows using **Airflow** and **Kubernetes**, supporting a network of 5 context-rich websites (100k+ monthly active users) and improving their data-refresh frequency by **quarterly to daily**.
 - **Improved** Google organic ranking for primary web assets by implementing a dimensionally modeled data structure that served context-rich metadata via a TypeScript GraphQL API.
 
 ## Lead Data Engineer @ TRACTIAN (tractian.com)
@@ -105,8 +105,8 @@ _May 2019 – February 2020_
 
 _June 2018 – May 2019_
 
-- **Engineered** a serverless data acquisition infrastructure on AWS (Lambda, SQS, S3) using Infrastructure-as-Code (CloudFormation), supporting the secure ingestion of **[...]** thousands of records daily.
-- **Refactored** high-availability Python (Scrapy) web scrapers, increasing data collection success rates by **[...]%** across thousands of distinct public and private data sources.
+- **Engineered** a serverless data acquisition infrastructure on AWS (Lambda, SQS, S3) using Infrastructure-as-Code (CloudFormation), supporting the secure ingestion of **more than 100k** records daily.
+- **Refactored** high-availability Python (Scrapy) web scrapers, increasing data collection success rates by **30%** across thousands of distinct public and private data sources.
 
 ## Software Developer Intern / DBA @ Dolphin Enterprises Ltd (https://www.dolphinent.com/)
 
@@ -119,5 +119,5 @@ _September 2017 – May 2018_
 
 _June 2015 – August 2015_
 
-- **Developed** Machine Learning algorithms for sentiment analysis and e-commerce search using **Java**, improving search relevance for user-generated content by **[...]%**.
-- **Automated** social media monitoring workflows for the Odysci Media Analyzer platform, reducing manual data processing time by **[...]** hours per week.
+- **Developed** Machine Learning algorithms for sentiment analysis and e-commerce search using **Java**, improving search relevance for user-generated content.
+- **Automated** social media monitoring workflows for the Odysci Media Analyzer platform, reducing manual data processing time by hours per week.
