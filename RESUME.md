@@ -4,6 +4,7 @@ label: Lead Data Engineer | AWS & Azure Certified | McKinsey Alumni
 email: ""
 phone: ""
 url: https://yuriolive.com
+image: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&auto=format&fit=crop
 profiles:
   - network: linkedin
     username: yuriolive

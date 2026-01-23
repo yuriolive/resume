@@ -47,6 +47,9 @@ const NameSection = styled.div`
   border-right: 2px solid #111;
   background: #111;
   color: white;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 `;
 
 const Name = styled.h1`
@@ -107,6 +110,20 @@ const Sidebar = styled.aside`
 const MainContent = styled.main`
   background: white;
   min-width: 0;
+`;
+
+const ProfileImage = styled.img`
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: block;
+  filter: grayscale(100%);
+  
+  &:hover {
+    filter: grayscale(0%);
+  }
 `;
 
 const SidebarSection = styled.div`
@@ -309,8 +326,11 @@ function Resume({ resume }) {
     <Layout>
       <Header>
         <NameSection>
-          {basics.name && <Name>{basics.name}</Name>}
-          {basics.label && <Tagline>{basics.label}</Tagline>}
+          {basics.image && <ProfileImage src={basics.image} alt={basics.name} />}
+          <div>
+            {basics.name && <Name>{basics.name}</Name>}
+            {basics.label && <Tagline>{basics.label}</Tagline>}
+          </div>
         </NameSection>
         <ContactSection>
           {basics.email && <ContactItem>EMAIL: {basics.email}</ContactItem>}

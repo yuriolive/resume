@@ -102,6 +102,7 @@ async function parseResume() {
       email: frontmatter.email || '',
       phone: frontmatter.phone || '',
       url: frontmatter.url || '',
+      image: frontmatter.image || '',
       summary: (frontmatter.summary || '').trim(),
       location: frontmatter.location || {
         city: '',
