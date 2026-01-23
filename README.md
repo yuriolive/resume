@@ -26,39 +26,28 @@ This tool parses a structured Markdown file (`RESUME.md`) into a `resume.json` f
 
 3. **Generate JSON**:
    Run the build script:
+
    ```bash
    bun run build
    ```
+
    This will update the `resume.json` file.
 
-## Markdown Structure
+4. **Generate Website & PDF**:
+   - For HTML: `bun run generate:site` (outputs to `public/index.html`)
+   - For PDF: `bun run generate:pdf` (outputs to `resume.pdf`)
 
-### Frontmatter (YAML)
+> [!TIP]
+> If `generate:pdf` hangs in your environment, simply run `generate:site`, open `public/index.html` in your browser, and print to PDF manually.
 
-The top of your `RESUME.md` should contain metadata:
+## Documentation
 
-```yaml
----
-name: Your Name
-label: Job Title
-email: your@email.com
-# ... other structured fields
----
-```
-
-### Body
-
-Use headers for work experience:
-
-```markdown
-## Job Title @ Company Name
-
-_Start Date – End Date_
-
-- Accomplishment 1
-- Accomplishment 2
-```
+- [PRD.md](file:///c:/Users/yuri_/IdeaProjects/resume/PRD.md): Project requirements.
 
 ## Maintenance
 
-The parser logic is located in `scripts/parse-resume.ts`.
+The logic is split into:
+
+- `scripts/parse-resume.ts`: Markdown to JSON parsing.
+- `scripts/generate-site.ts`: JSON to HTML rendering.
+- `scripts/generate-pdf.ts`: HTML to PDF conversion.

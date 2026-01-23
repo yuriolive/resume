@@ -6,7 +6,9 @@
   "author": "Yuri Olive",
   "license": "MIT",
   "scripts": {
-    "build": "bun run scripts/parse-resume.ts"
+    "build": "bun run scripts/parse-resume.ts",
+    "generate:site": "bun run scripts/generate-site.ts",
+    "generate:pdf": "bun run scripts/generate-pdf.ts"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
