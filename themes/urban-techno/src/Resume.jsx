@@ -36,6 +36,22 @@ const Layout = styled.div`
   }
 `;
 
+const WorkEntry = styled.div`
+  margin-bottom: 20px;
+  break-inside: avoid;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+const WorkHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2px;
+`;
+
 const Header = styled.header`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -100,16 +116,18 @@ const MainGrid = styled.div`
   display: grid;
   grid-template-columns: 280px 1fr;
   width: 100%;
+  background: linear-gradient(to right, #e8e8e8 280px, #e8e8e8 280px, white 280px);
+  min-height: 100%;
 `;
 
 const Sidebar = styled.aside`
-  border-right: 2px solid #111;
-  background: #e8e8e8;
+  background: transparent;
 `;
 
 const MainContent = styled.main`
   background: white;
   min-width: 0;
+  border-left: 2px solid #111;
 `;
 
 const ProfileImage = styled.img`
@@ -199,49 +217,26 @@ const MainSectionTitle = styled.h2`
   letter-spacing: 1.2px;
 `;
 
-const WorkGrid = styled.div`
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  border-bottom: 1px solid #666;
-  break-inside: avoid;
-
-  &:last-child {
-    border-bottom: none;
-  }
-`;
-
-const DateColumn = styled.div`
-  padding: 16px 12px;
-  border-right: 1px solid #999;
-  background: white;
-  font-size: 9px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  line-height: 1.6;
-  word-wrap: break-word;
-`;
-
-const ContentColumn = styled.div`
-  padding: 16px 24px;
-`;
-
 const WorkTitle = styled.h3`
   font-size: 15px;
   font-weight: 900;
-  margin: 0 0 6px 0;
   text-transform: uppercase;
-  letter-spacing: -0.2px;
-  line-height: 1.2;
+  margin: 0;
+  color: #111;
+  flex: 1;
 `;
 
 const WorkCompany = styled.div`
   font-size: 11px;
   font-weight: 700;
-  margin-bottom: 10px;
   text-transform: uppercase;
+  color: #111;
+  margin-bottom: 8px;
   letter-spacing: 0.5px;
-  color: #333;
+`;
+
+const ContentColumn = styled.div`
+  min-width: 0;
 `;
 
 const WorkDescription = styled.p`
@@ -251,7 +246,7 @@ const WorkDescription = styled.p`
   color: #333;
 `;
 
-const WorkHighlights = styled.ul`
+const HighlightsList = styled.ul`
   margin: 8px 0 0 0;
   padding-left: 20px;
   list-style: none;
@@ -295,9 +290,11 @@ const parseMarkdown = (text) => {
 
 const formatProfileUrl = (url, network) => {
   const net = network.toLowerCase();
-  if (net === 'linkedin' || net === 'github') {
-    const handle = url.split('/').filter(Boolean).pop();
-    return `@${handle}`;
+  if (net === 'linkedin') {
+    return url.replace(/https?:\/\/(www\.)?linkedin\.com/, '');
+  }
+  if (net === 'github') {
+    return url.replace(/https?:\/\/(www\.)?github\.com/, '');
   }
   return url;
 };
@@ -435,30 +432,41 @@ function Resume({ resume }) {
           {work.length > 0 && (
             <MainSection>
               <MainSectionTitle>Experience</MainSectionTitle>
-              {work.map((job, index) => (
-                <WorkGrid key={index}>
-                  <DateColumn>
-                    <DateRange
-                      startDate={job.startDate}
-                      endDate={job.endDate}
-                    />
-                  </DateColumn>
-                  <ContentColumn>
-                    <WorkTitle>{job.position || job.name}</WorkTitle>
-                    {job.name && <WorkCompany>{job.name}</WorkCompany>}
-                    {job.summary && (
-                      <WorkDescription>{job.summary}</WorkDescription>
-                    )}
-                    {job.highlights && job.highlights.length > 0 && (
-                      <WorkHighlights>
-                        {job.highlights.map((highlight, i) => (
-                          <li key={i} dangerouslySetInnerHTML={{ __html: parseMarkdown(highlight) }} />
-                        ))}
-                      </WorkHighlights>
-                    )}
-                  </ContentColumn>
-                </WorkGrid>
-              ))}
+              <SidebarContent>
+                {work.map((item, index) => (
+                  <WorkEntry key={index}>
+                    <WorkHeader>
+                      <WorkTitle>{item.position}</WorkTitle>
+                      <DateRange
+                        startDate={item.startDate}
+                        endDate={item.endDate}
+                      />
+                    </WorkHeader>
+                    <WorkCompany>{item.name}</WorkCompany>
+                    <ContentColumn>
+                      {item.summary && (
+                        <WorkDescription
+                          dangerouslySetInnerHTML={{
+                            __html: parseMarkdown(item.summary),
+                          }}
+                        />
+                      )}
+                      {item.highlights && item.highlights.length > 0 && (
+                        <HighlightsList>
+                          {item.highlights.map((highlight, hIndex) => (
+                            <li
+                              key={hIndex}
+                              dangerouslySetInnerHTML={{
+                                __html: parseMarkdown(highlight),
+                              }}
+                            />
+                          ))}
+                        </HighlightsList>
+                      )}
+                    </ContentColumn>
+                  </WorkEntry>
+                ))}
+              </SidebarContent>
             </MainSection>
           )}
 
