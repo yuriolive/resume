@@ -13,7 +13,7 @@ profiles:
     username: yuriolive
     url: https://github.com/yuriolive
 summary: |
-  Lead Data Engineer with over 8 years of experience architecting scalable data pipelines and AI/ML solutions. Proven track record of managing data infrastructures for organizations of up to **[...]** employees and handling data volumes exceeding **[...]** TB. Expert in modernizing ELT frameworks and cloud-native architectures to drive a **[...]%** increase in operational efficiency.
+  Lead Data Engineer with over 8 years of experience architecting scalable data pipelines and AI/ML solutions. Proven track record of managing data infrastructures for organizations of up to **tens of thousands** employees and handling data volumes exceeding **1 PB**. Expert in modernizing ELT frameworks and cloud-native architectures to drive increase in operational efficiency.
 
 location:
   city: "Jundiaí"
@@ -90,22 +90,22 @@ _July 2021 – December 2021_
 
 _February 2020 – July 2021_
 
-- **Optimized** an e-commerce recommendation pipeline using Databricks (Scala/Spark) for a major retailer, resulting in a **1.8%** increase in client revenue, totaling **[...] USD**.
-- **Engineered** a recommendation platform for a global shrimp producer using Kedro and GCP, increasing average product size by **[...]%** while reducing feed costs by **[...]%**.
-- **Resolved** critical production data issues for an industrial vessel fleet, ensuring 100% on-time delivery of data reports and avoiding potential financial penalties of **[...] USD**.
+- **Optimized** an e-commerce recommendation pipeline using Databricks (Scala/Spark) for **Casas Bahia** (a major Brazilian retailer), resulting in a **1.8%** increase in client revenue, totaling **millions of BRL**.
+- **Engineered** a recommendation platform for a global shrimp producer using Kedro, Airflow and Bigquery in GCP, increasing average product size by **40%** while reducing feed costs by **20%**.
+- **Resolved** critical production data issues for an industrial vessel fleet from Japan, ensuring 100% on-time delivery of data reports and avoiding potential financial penalties of **thousands of USD**.
 
 ## Data Specialist @ Stone (stone.co)
 
 _May 2019 – February 2020_
 
-- **Constructed** a scalable BigQuery Data Lake, reducing average query execution times from several days to **[...]** minutes for the finance department.
-- **Migrated** a legacy SQL Server warehouse to Snowflake, moving **[...] TB** of financial data while applying Kimball principles to improve cross-departmental reporting speed by **[...]%**.
+- **Constructed** a scalable BigQuery Data Lake, reducing average query execution times from several days to **minutes** for the finance department.
+- **Migrated** a legacy SQL Server warehouse to Snowflake, moving **more than 1 TB** of financial data while applying Kimball principles to improve cross-departmental reporting speed.
 
 ## Data Engineer @ Big Data Brasil (bdtech.ai)
 
 _June 2018 – May 2019_
 
-- **Engineered** a serverless data acquisition infrastructure on AWS (Lambda, SQS, S3) using Infrastructure-as-Code (CloudFormation), supporting the secure ingestion of **[...]** million records daily.
+- **Engineered** a serverless data acquisition infrastructure on AWS (Lambda, SQS, S3) using Infrastructure-as-Code (CloudFormation), supporting the secure ingestion of **[...]** thousands of records daily.
 - **Refactored** high-availability Python (Scrapy) web scrapers, increasing data collection success rates by **[...]%** across thousands of distinct public and private data sources.
 
 ## Software Developer Intern / DBA @ Dolphin Enterprises Ltd (https://www.dolphinent.com/)
