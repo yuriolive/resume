@@ -355,7 +355,11 @@ function Resume({ resume }) {
           </div>
         </NameSection>
         <ContactSection>
-          {basics.email && <ContactItem>EMAIL: {basics.email}</ContactItem>}
+          {basics.email && (
+            <ContactItem>
+              EMAIL: <a href={`mailto:${basics.email}`}>{basics.email}</a>
+            </ContactItem>
+          )}
           {basics.phone && <ContactItem>PHONE: {basics.phone}</ContactItem>}
           {basics.location?.city && basics.location?.region && (
             <ContactItem>
