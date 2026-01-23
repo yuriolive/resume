@@ -1,13 +1,9 @@
-import React from "react";
 import styled from "styled-components";
 import { marked } from "marked";
 import {
-  Section,
-  SectionTitle,
   DateRange,
   Badge,
   BadgeList,
-  ContactInfo,
   Link,
   safeUrl,
 } from "@jsonresume/core";
