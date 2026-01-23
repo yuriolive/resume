@@ -8,7 +8,8 @@
   "scripts": {
     "build": "bun run scripts/parse-resume.ts",
     "generate:site": "bun run scripts/generate-site.ts",
-    "generate:pdf": "npx tsx scripts/generate-pdf.ts"
+    "generate:pdf": "npx tsx scripts/generate-pdf.ts",
+    "generate:all": "npm run build && npm run generate:site && npm run generate:pdf"
   },
   "dependencies": {
     "@jsonresume/core": "^0.1.0",
