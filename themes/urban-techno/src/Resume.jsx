@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { marked } from 'marked';
+import React from "react";
+import styled from "styled-components";
+import { marked } from "marked";
 import {
   Section,
   SectionTitle,
@@ -10,8 +10,8 @@ import {
   ContactInfo,
   Link,
   safeUrl,
-} from '@jsonresume/core';
-import Waves from './components/Waves.jsx';
+} from "@jsonresume/core";
+import Waves from "./components/Waves.jsx";
 
 const Layout = styled.div`
   max-width: 1000px;
@@ -19,7 +19,11 @@ const Layout = styled.div`
   margin: 0 auto;
   padding: 0;
   background: rgba(255, 255, 255, 0.9);
-  font-family: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Roboto Condensed",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   color: #111;
   line-height: 1.4;
   font-size: 13px;
@@ -30,11 +34,15 @@ const Layout = styled.div`
     padding: 0 !important;
     border: none;
     background: #000 !important;
-    
+
     @page {
       margin: 0;
       size: auto;
     }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
   }
 `;
 
@@ -45,6 +53,10 @@ const WorkEntry = styled.div`
   &:last-child {
     margin-bottom: 0;
   }
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const WorkHeader = styled.div`
@@ -52,6 +64,11 @@ const WorkHeader = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 8px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 4px;
+  }
 `;
 
 const WorkTitleSection = styled.div`
@@ -75,12 +92,22 @@ const CompanyLogo = styled.img`
   padding: 2px;
   border: 1px solid #ddd;
   margin-top: 2px;
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
 
 const Header = styled.header`
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-bottom: 2px solid #111;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    border-bottom: none;
+  }
 `;
 
 const NameSection = styled.div`
@@ -91,6 +118,16 @@ const NameSection = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    border-right: none;
+    border-bottom: 2px solid #111;
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 12px;
+  }
 `;
 
 const Name = styled.h1`
@@ -100,6 +137,10 @@ const Name = styled.h1`
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 0.9;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
 `;
 
 const Tagline = styled.div`
@@ -109,6 +150,10 @@ const Tagline = styled.div`
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #666;
+
+  @media (max-width: 768px) {
+    margin: 4px 0 0 0;
+  }
 `;
 
 const ContactSection = styled.div`
@@ -118,6 +163,12 @@ const ContactSection = styled.div`
   flex-direction: column;
   gap: 12px;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+    gap: 8px;
+    border-bottom: 2px solid #111;
+  }
 `;
 
 const ContactItem = styled.div`
@@ -125,6 +176,11 @@ const ContactItem = styled.div`
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+
+  @media (max-width: 768px) {
+    font-size: 10px;
+    text-align: center;
+  }
 
   a {
     color: #111;
@@ -141,11 +197,26 @@ const MainGrid = styled.div`
   display: grid;
   grid-template-columns: 280px 1fr;
   width: 100%;
-  background: linear-gradient(to right, rgba(232, 232, 232, 0.9) 280px, rgba(232, 232, 232, 0.9) 280px, transparent 280px);
+  background: linear-gradient(
+    to right,
+    rgba(232, 232, 232, 0.9) 280px,
+    rgba(232, 232, 232, 0.9) 280px,
+    transparent 280px
+  );
   min-height: 100%;
 
   @media print {
-    background: linear-gradient(to right, #e8e8e8 280px, #e8e8e8 280px, white 280px) !important;
+    background: linear-gradient(
+      to right,
+      #e8e8e8 280px,
+      #e8e8e8 280px,
+      white 280px
+    ) !important;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    background: #e8e8e8;
   }
 `;
 
@@ -154,9 +225,14 @@ const Sidebar = styled.aside`
 `;
 
 const MainContent = styled.main`
-  background: transparent;
+  background: white;
   min-width: 0;
   border-left: 2px solid #111;
+
+  @media (max-width: 768px) {
+    border-left: none;
+    border-top: 2px solid #111;
+  }
 `;
 
 const ProfileImage = styled.img`
@@ -166,6 +242,11 @@ const ProfileImage = styled.img`
   border-radius: 50%;
   border: 2px solid white;
   display: block;
+
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+  }
 `;
 
 const SidebarSection = styled.div`
@@ -189,6 +270,10 @@ const SidebarSectionTitle = styled.h2`
 
 const SidebarContent = styled.div`
   padding: 16px;
+
+  @media (max-width: 768px) {
+    padding: 12px;
+  }
 `;
 
 const SkillItem = styled.div`
@@ -244,6 +329,10 @@ const MainSectionTitle = styled.h2`
   padding: 10px 20px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
+
+  @media (max-width: 768px) {
+    padding: 8px 16px;
+  }
 `;
 
 const WorkTitle = styled.h3`
@@ -253,6 +342,10 @@ const WorkTitle = styled.h3`
   margin: 0;
   color: #111;
   flex: 1;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const WorkCompany = styled.div`
@@ -272,6 +365,10 @@ const WorkDescription = styled.div`
   font-size: 13px;
   line-height: 1.5;
   color: #333;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 
   p {
     margin: 8px 0;
@@ -299,8 +396,12 @@ const HighlightsList = styled.ul`
     position: relative;
     padding-left: 12px;
 
+    @media (max-width: 768px) {
+      font-size: 11px;
+    }
+
     &::before {
-      content: '■';
+      content: "■";
       position: absolute;
       left: 0;
       color: #111;
@@ -324,17 +425,17 @@ const SimpleList = styled.div`
 `;
 
 const parseMarkdown = (text) => {
-  if (!text) return '';
+  if (!text) return "";
   return marked.parse(text, { breaks: true, gfm: true });
 };
 
 const formatProfileUrl = (url, network) => {
   const net = network.toLowerCase();
-  if (net === 'linkedin') {
-    return url.replace(/https?:\/\/(www\.)?linkedin\.com/, '');
+  if (net === "linkedin") {
+    return url.replace(/https?:\/\/(www\.)?linkedin\.com/, "");
   }
-  if (net === 'github') {
-    return url.replace(/https?:\/\/(www\.)?github\.com/, '');
+  if (net === "github") {
+    return url.replace(/https?:\/\/(www\.)?github\.com/, "");
   }
   return url;
 };
@@ -359,7 +460,9 @@ function Resume({ resume }) {
       <Waves />
       <Header>
         <NameSection>
-          {basics.image && <ProfileImage src={basics.image} alt={basics.name} />}
+          {basics.image && (
+            <ProfileImage src={basics.image} alt={basics.name} />
+          )}
           <div>
             {basics.name && <Name>{basics.name}</Name>}
             {basics.label && <Tagline>{basics.label}</Tagline>}
@@ -385,8 +488,10 @@ function Resume({ resume }) {
           )}
           {basics.profiles?.map((profile, index) => (
             <ContactItem key={index}>
-              {profile.network.toUpperCase()}:{' '}
-              <a href={safeUrl(profile.url)}>{formatProfileUrl(profile.url, profile.network)}</a>
+              {profile.network.toUpperCase()}:{" "}
+              <a href={safeUrl(profile.url)}>
+                {formatProfileUrl(profile.url, profile.network)}
+              </a>
             </ContactItem>
           ))}
         </ContactSection>
@@ -398,7 +503,11 @@ function Resume({ resume }) {
             <SidebarSection>
               <SidebarSectionTitle>Summary</SidebarSectionTitle>
               <SidebarContent>
-                <WorkDescription dangerouslySetInnerHTML={{ __html: parseMarkdown(basics.summary) }} />
+                <WorkDescription
+                  dangerouslySetInnerHTML={{
+                    __html: parseMarkdown(basics.summary),
+                  }}
+                />
               </SidebarContent>
             </SidebarSection>
           )}
@@ -426,16 +535,20 @@ function Resume({ resume }) {
               <SidebarSectionTitle>Education</SidebarSectionTitle>
               <SidebarContent>
                 {education.map((edu, index) => (
-                  <div key={index} style={{ marginBottom: '16px' }}>
-                    <WorkTitle style={{ fontSize: '12px' }}>{edu.institution}</WorkTitle>
-                    <WorkCompany style={{ fontSize: '10px', marginBottom: '4px' }}>
+                  <div key={index} style={{ marginBottom: "16px" }}>
+                    <WorkTitle style={{ fontSize: "12px" }}>
+                      {edu.institution}
+                    </WorkTitle>
+                    <WorkCompany
+                      style={{ fontSize: "10px", marginBottom: "4px" }}
+                    >
                       {edu.studyType}
                       {edu.area && ` in ${edu.area}`}
                     </WorkCompany>
                     <DateRange
                       startDate={edu.startDate}
                       endDate={edu.endDate}
-                      style={{ fontSize: '9px', opacity: 0.8 }}
+                      style={{ fontSize: "9px", opacity: 0.8 }}
                     />
                   </div>
                 ))}
@@ -483,10 +596,10 @@ function Resume({ resume }) {
                     <WorkHeader>
                       <WorkTitleSection>
                         {item.url && (
-                          <CompanyLogo 
-                            src={`https://img.logo.dev/${new URL(item.url).hostname}?token=pk_CyyuO4QUShuOoZ1sHLG6Ow`} 
-                            alt={item.name} 
-                            onError={(e) => e.target.style.display = 'none'}
+                          <CompanyLogo
+                            src={`https://img.logo.dev/${new URL(item.url).hostname}?token=pk_CyyuO4QUShuOoZ1sHLG6Ow`}
+                            alt={item.name}
+                            onError={(e) => (e.target.style.display = "none")}
                           />
                         )}
                         <WorkTextGroup>
