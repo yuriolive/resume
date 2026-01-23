@@ -65,9 +65,9 @@ certificates:
 
 _April 2023 – Present_
 
-- **Spearheaded** the redesign of legacy data pipelines using Meltano, Scrapy, and Airflow, resulting in a **[...]%** reduction in infrastructure maintenance time and a **[...]%** improvement in data reliability.
+- **Spearheaded** the redesign of legacy data pipelines using Meltano, Scrapy, and Airflow, resulting in **days** of reduction in infrastructure maintenance time and a **more than 60%** improvement in data reliability.
 - **Architected** a custom data extraction solution for Slack to bypass 2FA and high-cost API limitations, saving the company **200k USD** per year in operational costs.
-- **Developed** a robust data pipeline for SMA Resume collection, implementing request-bypass logic that successfully processed **[...]** resumes for the recruitment team without hitting service limits.
+- **Developed** a robust data pipeline for Survey Monkey Apply Resume collection, implementing request-bypass logic that successfully processed **tens of thousands** resumes without hitting service limits.
 - **Integrated** the Expert App and Grading Service databases into a centralized BigQuery warehouse, enabling 50+ internal stakeholders to access real-time performance metrics via dbt, improving training performance by **10%** and saving the company **more than 100k USD** per year in operational costs.
 - **Standardized** production environments by implementing Infrastructure-as-Code (Terraform) and CI/CD (GitHub Actions), which reduced deployment failure rates.
 
