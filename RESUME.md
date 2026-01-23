@@ -36,9 +36,9 @@ skills:
         Google Cloud Platform (GCP),
       ]
   - name: ML Frameworks & Tools
-    keywords: [Kedro, Spark MLLib, LangGraph]
+    keywords: [Kedro, Spark MLLib, LangGraph, LangChain]
   - name: Testing
-    keywords: [Pytest]
+    keywords: [Pytest, Vitest]
   - name: Infrastructure
     keywords: [Terraform, GitHub Actions, CloudFormation]
   - name: Others
