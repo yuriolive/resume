@@ -1,5 +1,5 @@
 ---
-name: YURI OLIVE
+name: Yuri Olive
 label: Lead Data Engineer | AWS & Azure Certified | McKinsey Alumni
 email: "zit-kabob-bucked@duck.com"
 phone: ""
