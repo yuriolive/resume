@@ -11,8 +11,10 @@
     "generate:pdf": "bun run scripts/generate-pdf.ts"
   },
   "dependencies": {
-    "js-yaml": "^4.1.0",
     "@jsonresume/core": "^0.1.0",
+    "@types/marked": "^6.0.0",
+    "js-yaml": "^4.1.0",
+    "marked": "^17.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "styled-components": "^6.1.19"

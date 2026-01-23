@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { marked } from 'marked';
 import {
   Section,
   SectionTitle,
@@ -262,6 +263,11 @@ const SimpleList = styled.div`
   }
 `;
 
+const parseMarkdown = (text) => {
+  if (!text) return '';
+  return marked.parse(text, { breaks: true, gfm: true });
+};
+
 function Resume({ resume }) {
   const {
     basics = {},
@@ -361,7 +367,7 @@ function Resume({ resume }) {
             <MainSection>
               <MainSectionTitle>Summary</MainSectionTitle>
               <ContentColumn>
-                <WorkDescription>{basics.summary}</WorkDescription>
+                <WorkDescription dangerouslySetInnerHTML={{ __html: parseMarkdown(basics.summary) }} />
               </ContentColumn>
             </MainSection>
           )}
@@ -386,7 +392,7 @@ function Resume({ resume }) {
                     {job.highlights && job.highlights.length > 0 && (
                       <WorkHighlights>
                         {job.highlights.map((highlight, i) => (
-                          <li key={i}>{highlight}</li>
+                          <li key={i} dangerouslySetInnerHTML={{ __html: parseMarkdown(highlight) }} />
                         ))}
                       </WorkHighlights>
                     )}

@@ -32,9 +32,9 @@ interface Basics {
 }
 
 interface Work {
-  company: string;
+  name: string;
   position: string;
-  website?: string;
+  url?: string;
   startDate: string;
   endDate?: string;
   summary?: string;
@@ -137,7 +137,7 @@ async function parseResume() {
 
       currentWork = {
         position: position || '',
-        company: company || '',
+        name: company || '',
         startDate: '',
         endDate: '',
         highlights: []
