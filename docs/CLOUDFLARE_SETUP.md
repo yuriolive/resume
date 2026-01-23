@@ -171,6 +171,32 @@ If you want to use a custom domain instead of `*.pages.dev`:
    - DNS changes can take a few minutes to a few hours
    - Once complete, your resume will be accessible at your custom domain
 
+## Step 7: Redirect www to Root Domain (Recommended)
+
+To ensure that visiting `www.yuriolive.com` redirects to `yuriolive.com`, follow these steps:
+
+1. **Add www to Pages Custom Domains**
+   - Go to **Workers & Pages** > your project > **Custom domains**.
+   - Click **Set up a custom domain** and add `www.yuriolive.com`.
+   - Cloudflare will likely say it's ready. This step is important because it ensures Cloudflare generates a valid SSL certificate for the `www` subdomain.
+
+2. **Create a Redirect Rule**
+   - In the Cloudflare sidebar, go to **Rules** > **Redirect Rules**.
+   - Click **Create rule**.
+   - **Rule name**: `Redirect www to Root`.
+   - **When incoming requests match**:
+     - Field: `Hostname`
+     - Operator: `equals`
+     - Value: `www.yuriolive.com` (use your actual domain)
+   - **Then incoming requests are redirected...**:
+     - Type: `Dynamic`
+     - Expression: `concat("https://yuriolive.com", http.request.uri.path)`
+     - Status code: `301` (Permanent Redirect)
+     - Preserve query string: Checked
+   - Click **Deploy**.
+
+This setup ensures that all traffic to the `www` version of your site is automatically and securely redirected to the root domain.
+
 ## Troubleshooting
 
 ### Deployment Fails with "Unauthorized" Error
