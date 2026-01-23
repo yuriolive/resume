@@ -4,6 +4,10 @@ label: Lead Data Engineer | AWS & Azure Certified | McKinsey Alumni
 email: ""
 phone: ""
 url: https://yuriolive.com
+profiles:
+  - network: linkedin
+    username: yuriolive
+    url: https://www.linkedin.com/in/yuriolive
 summary: |
   Lead Data Engineer with over 8 years of experience architecting scalable data pipelines and AI/ML solutions. Proven track record of managing data infrastructures for organizations of up to **[...]** employees and handling data volumes exceeding **[...]** TB. Expert in modernizing ELT frameworks and cloud-native architectures to drive a **[...]%** increase in operational efficiency.
 

@@ -14,6 +14,7 @@ import {
 
 const Layout = styled.div`
   max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
   padding: 0;
   background: white;
@@ -23,6 +24,8 @@ const Layout = styled.div`
   font-size: 13px;
 
   @media print {
+    max-width: none;
+    margin: 0;
     border: none;
   }
 `;
@@ -268,6 +271,13 @@ const parseMarkdown = (text) => {
   return marked.parse(text, { breaks: true, gfm: true });
 };
 
+const formatProfileUrl = (url, network) => {
+  if (network.toLowerCase() === 'linkedin') {
+    return url.replace(/https?:\/\/(www\.)?linkedin\.com/, '');
+  }
+  return url;
+};
+
 function Resume({ resume }) {
   const {
     basics = {},
@@ -303,10 +313,10 @@ function Resume({ resume }) {
               WEB: <a href={safeUrl(basics.url)}>{basics.url}</a>
             </ContactItem>
           )}
-          {basics.profiles?.slice(0, 2).map((profile, index) => (
+          {basics.profiles?.map((profile, index) => (
             <ContactItem key={index}>
               {profile.network.toUpperCase()}:{' '}
-              <a href={safeUrl(profile.url)}>{profile.username}</a>
+              <a href={safeUrl(profile.url)}>{formatProfileUrl(profile.url, profile.network)}</a>
             </ContactItem>
           ))}
         </ContactSection>
