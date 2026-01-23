@@ -158,9 +158,9 @@ const ContactSection = styled.div`
   padding: 24px;
   background: white;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 12px 24px;
-  align-items: start;
+  align-items: center;
 
   @media screen and (max-width: 768px) {
     padding: 16px;
@@ -175,24 +175,26 @@ const ContactItem = styled.div`
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 24px 1fr;
   gap: 8px;
+  align-items: center;
 
   @media screen and (max-width: 768px) {
     font-size: 10px;
-    justify-content: center;
   }
 
   svg {
     opacity: 0.6;
-    flex-shrink: 0;
+    justify-self: center;
+    width: 14px;
+    height: 14px;
   }
 
   a {
     color: #111;
     text-decoration: none;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #eee;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -490,23 +492,36 @@ const ExportButton = styled.button`
 `;
 
 const BookButton = styled.a`
-  display: inline-flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 24px 1fr;
   gap: 8px;
+  align-items: center;
   background: #111;
   color: white;
-  padding: 8px 16px;
+  padding: 6px 12px 6px 0; /* 0 left padding so the first grid column (icon) starts at the edge */
   text-decoration: none;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.2s ease;
   border: 1px solid #111;
-  margin-top: 4px;
   width: fit-content;
 
+  .btn-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    
+    svg {
+      margin-right: 0; /* Clear previous margin */
+    }
+  }
+
   svg {
+    width: 14px;
+    height: 14px;
     transition: transform 0.2s ease;
   }
 
@@ -521,22 +536,22 @@ const BookButton = styled.a`
 
   @media print {
     border-color: #111;
-    background: white !important;
-    color: #111 !important;
+    background: #111 !important;
+    color: white !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-    padding: 6px 12px;
+    padding: 4px 12px;
     font-size: 9px;
     
     svg {
-      display: none;
+      stroke: white;
     }
   }
 
   @media screen and (max-width: 768px) {
-    margin: 8px auto 0 auto;
-    font-size: 11px;
-    padding: 10px 20px;
+    margin: 4px auto 0 auto;
+    font-size: 10px;
+    padding: 6px 12px;
   }
 `;
 
@@ -626,12 +641,13 @@ function Resume({ resume }) {
         <ContactSection>
           {basics.email && (
             <ContactItem>
-              {icons.email} <a href={`mailto:${basics.email}`}>{basics.email}</a>
+              {icons.email}
+              <a href={`mailto:${basics.email}`}>{basics.email}</a>
             </ContactItem>
           )}
           {otherProfiles.find(p => p.network.toLowerCase() === 'linkedin') && (
             <ContactItem>
-              {icons.linkedin} 
+              {icons.linkedin}
               <a href={safeUrl(otherProfiles.find(p => p.network.toLowerCase() === 'linkedin').url)}>
                 {formatProfileUrl(otherProfiles.find(p => p.network.toLowerCase() === 'linkedin').url, 'linkedin')}
               </a>
@@ -639,12 +655,13 @@ function Resume({ resume }) {
           )}
           {basics.location?.city && (
             <ContactItem>
-              {icons.location} {basics.location.city}, {basics.location.region}
+              {icons.location}
+              <span>{basics.location.city}, {basics.location.region}</span>
             </ContactItem>
           )}
           {otherProfiles.find(p => p.network.toLowerCase() === 'github') && (
             <ContactItem>
-              {icons.github} 
+              {icons.github}
               <a href={safeUrl(otherProfiles.find(p => p.network.toLowerCase() === 'github').url)}>
                 {formatProfileUrl(otherProfiles.find(p => p.network.toLowerCase() === 'github').url, 'github')}
               </a>
@@ -652,27 +669,30 @@ function Resume({ resume }) {
           )}
           {basics.url && (
             <ContactItem>
-              {icons.web} <a href={safeUrl(basics.url)}>{basics.url.replace(/^https?:\/\//, '')}</a>
+              {icons.web}
+              <a href={safeUrl(basics.url)}>{basics.url.replace(/^https?:\/\//, '')}</a>
             </ContactItem>
           )}
           {calendlyProfile && (
             <BookButton href={safeUrl(calendlyProfile.url)} target="_blank" rel="noopener noreferrer">
-              <svg 
-                width="14" 
-                height="14" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2.5" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                <line x1="16" y1="2" x2="16" y2="6" />
-                <line x1="8" y1="2" x2="8" y2="6" />
-                <line x1="3" y1="10" x2="21" y2="10" />
-              </svg>
-              Book a Time
+              <div className="btn-icon">
+                <svg 
+                  width="14" 
+                  height="14" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2.5" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </div>
+              <span>Book a Time</span>
             </BookButton>
           )}
         </ContactSection>
