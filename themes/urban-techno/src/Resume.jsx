@@ -29,7 +29,8 @@ const Layout = styled.div`
     margin: 0 !important;
     padding: 0 !important;
     border: none;
-    background: #000 !important;
+    background: white !important;
+    color: #000 !important;
 
     @page {
       margin: 0;
@@ -80,8 +81,8 @@ const WorkTextGroup = styled.div`
 `;
 
 const CompanyLogo = styled.img`
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 4px;
   object-fit: contain;
   background: white;
@@ -90,8 +91,8 @@ const CompanyLogo = styled.img`
   margin-top: 2px;
 
   @media (max-width: 768px) {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
   }
 `;
 
@@ -208,6 +209,7 @@ const MainGrid = styled.div`
       #e8e8e8 280px,
       white 280px
     ) !important;
+    border-color: #000 !important;
   }
 
   @media (max-width: 768px) {
@@ -417,6 +419,59 @@ const SimpleList = styled.div`
     &:last-child {
       margin-bottom: 0;
     }
+  }
+`;
+
+const ExportButton = styled.button`
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: #111;
+  color: white;
+  border: 4px solid #fff;
+  padding: 12px 24px;
+  font-family: inherit;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 9999;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  font-size: 14px;
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: #fff;
+    color: #111;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    
+    svg {
+      transform: translateY(2px);
+    }
+  }
+
+  &:active {
+    transform: translateY(-2px);
+  }
+
+  @media print {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    bottom: 24px;
+    right: 24px;
+    padding: 10px 18px;
+    font-size: 12px;
+    border-width: 3px;
   }
 `;
 
@@ -671,6 +726,23 @@ function Resume({ resume }) {
           )}
         </MainContent>
       </MainGrid>
+      <ExportButton id="export-pdf-btn">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        Export PDF
+      </ExportButton>
     </Layout>
   );
 }

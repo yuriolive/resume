@@ -20,9 +20,16 @@ export function render(resume) {
   ${styles}
 <style>
   body { margin: 0; padding: 0; background: #000; }
-  @media print { body { background: #000 !important; } }
+  @media print { body { background: white !important; } }
 </style>
 </head>
-<body style="margin: 0; padding: 0;">${html}</body>
+<body style="margin: 0; padding: 0;">
+  ${html}
+  <script>
+    document.getElementById('export-pdf-btn').addEventListener('click', function() {
+      window.print();
+    });
+  </script>
+</body>
 </html>`;
 }
