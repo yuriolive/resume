@@ -119,11 +119,6 @@ const ProfileImage = styled.img`
   border-radius: 50%;
   border: 2px solid white;
   display: block;
-  filter: grayscale(100%);
-  
-  &:hover {
-    filter: grayscale(0%);
-  }
 `;
 
 const SidebarSection = styled.div`
@@ -384,6 +379,28 @@ function Resume({ resume }) {
             </SidebarSection>
           )}
 
+          {education.length > 0 && (
+            <SidebarSection>
+              <SidebarSectionTitle>Education</SidebarSectionTitle>
+              <SidebarContent>
+                {education.map((edu, index) => (
+                  <div key={index} style={{ marginBottom: '16px' }}>
+                    <WorkTitle style={{ fontSize: '12px' }}>{edu.institution}</WorkTitle>
+                    <WorkCompany style={{ fontSize: '10px', marginBottom: '4px' }}>
+                      {edu.studyType}
+                      {edu.area && ` in ${edu.area}`}
+                    </WorkCompany>
+                    <DateRange
+                      startDate={edu.startDate}
+                      endDate={edu.endDate}
+                      style={{ fontSize: '9px', opacity: 0.8 }}
+                    />
+                  </div>
+                ))}
+              </SidebarContent>
+            </SidebarSection>
+          )}
+
           {languages.length > 0 && (
             <SidebarSection>
               <SidebarSectionTitle>Languages</SidebarSectionTitle>
@@ -438,33 +455,6 @@ function Resume({ resume }) {
                           <li key={i} dangerouslySetInnerHTML={{ __html: parseMarkdown(highlight) }} />
                         ))}
                       </WorkHighlights>
-                    )}
-                  </ContentColumn>
-                </WorkGrid>
-              ))}
-            </MainSection>
-          )}
-
-          {education.length > 0 && (
-            <MainSection>
-              <MainSectionTitle>Education</MainSectionTitle>
-              {education.map((edu, index) => (
-                <WorkGrid key={index}>
-                  <DateColumn>
-                    <DateRange
-                      startDate={edu.startDate}
-                      endDate={edu.endDate}
-                    />
-                  </DateColumn>
-                  <ContentColumn>
-                    <WorkTitle>{edu.institution}</WorkTitle>
-                    {edu.studyType && edu.area && (
-                      <WorkCompany>
-                        {edu.studyType} in {edu.area}
-                      </WorkCompany>
-                    )}
-                    {edu.score && (
-                      <WorkDescription>Score: {edu.score}</WorkDescription>
                     )}
                   </ContentColumn>
                 </WorkGrid>

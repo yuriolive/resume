@@ -17,6 +17,19 @@ async function generateSite() {
   console.log(`Ensuring directory ${publicDir} exists...`);
   await fs.mkdir(publicDir, { recursive: true });
 
+  // Copy assets to public
+  const assetsSrc = path.resolve('assets');
+  const assetsDest = path.join(publicDir, 'assets');
+  try {
+    const assetsExist = await fs.stat(assetsSrc).then(() => true).catch(() => false);
+    if (assetsExist) {
+        console.log(`Copying assets from ${assetsSrc} to ${assetsDest}...`);
+        await fs.cp(assetsSrc, assetsDest, { recursive: true });
+    }
+  } catch (err) {
+    console.warn('Warning: Could not copy assets folder:', err);
+  }
+
   console.log(`Writing to ${outputHtmlPath}...`);
   await fs.writeFile(outputHtmlPath, html, 'utf8');
   console.log('Site generated successfully!');

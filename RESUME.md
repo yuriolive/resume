@@ -4,7 +4,7 @@ label: Lead Data Engineer | AWS & Azure Certified | McKinsey Alumni
 email: ""
 phone: ""
 url: https://yuriolive.com
-image: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&auto=format&fit=crop
+image: assets/profile-picture.png
 profiles:
   - network: linkedin
     username: yuriolive
@@ -23,13 +23,11 @@ location:
 
 skills:
   - name: Programming Languages
-    keywords: [Python, Scala, TypeScript, SQL, Java, VB.NET]
+    keywords: [Python, SQL, TypeScript, Scala]
   - name: Databases & Storage
-    keywords:
-      [Snowflake, BigQuery, Redshift, MongoDB, Cassandra, PostgreSQL, MS SQL]
+    keywords: [Snowflake, BigQuery, MongoDB, Cassandra, PostgreSQL, MS SQL]
   - name: Data Tools
-    keywords:
-      [Airflow, dbt, Meltano, Kafka, Spark, Databricks, Scrapy, Terraform]
+    keywords: [Airflow, dbt, Airbyte, Kafka, Spark, Databricks, Scrapy, Meltano]
   - name: Cloud
     keywords:
       [
@@ -38,10 +36,13 @@ skills:
         Google Cloud Platform (GCP),
       ]
   - name: ML Frameworks & Tools
-    keywords: [Kedro, Spark MLLib, LangGraph, Pytest]
+    keywords: [Kedro, Spark MLLib, LangGraph]
+  - name: Testing
+    keywords: [Pytest]
+  - name: Infrastructure
+    keywords: [Terraform, GitHub Actions, CloudFormation]
   - name: Others
-    keywords:
-      [Docker, Kubernetes, GitHub Actions, CI/CD, Prisma, Apollo GraphQL]
+    keywords: [Docker, Kubernetes, CI/CD, Prisma, Apollo GraphQL]
 
 education:
   - institution: UNICAMP - Universidade Estadual de Campinas
