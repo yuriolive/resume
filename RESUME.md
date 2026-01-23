@@ -101,14 +101,14 @@ _May 2019 – February 2020_
 - **Constructed** a scalable BigQuery Data Lake, reducing average query execution times from several days to **[...]** minutes for the finance department.
 - **Migrated** a legacy SQL Server warehouse to Snowflake, moving **[...] TB** of financial data while applying Kimball principles to improve cross-departmental reporting speed by **[...]%**.
 
-## Data Engineer @ Big Data Brasil (bigdatabrasil.com.br)
+## Data Engineer @ Big Data Brasil (bdtech.ai)
 
 _June 2018 – May 2019_
 
 - **Engineered** a serverless data acquisition infrastructure on AWS (Lambda, SQS, S3) using Infrastructure-as-Code (CloudFormation), supporting the secure ingestion of **[...]** million records daily.
 - **Refactored** high-availability Python (Scrapy) web scrapers, increasing data collection success rates by **[...]%** across thousands of distinct public and private data sources.
 
-## Software Developer Intern / DBA @ Dolphin Enterprises Ltd (dolphin.com.hk)
+## Software Developer Intern / DBA @ Dolphin Enterprises Ltd (https://www.dolphinent.com/)
 
 _September 2017 – May 2018_
 
