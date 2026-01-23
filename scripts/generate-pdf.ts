@@ -1,14 +1,14 @@
 import { chromium } from 'playwright';
 import path from 'path';
-import fs from 'fs/promises';
 
 async function generatePdf() {
   const htmlPath = path.resolve('public/index.html');
   const pdfPath = path.resolve('resume.pdf');
 
-  console.log('Launching Chromium...');
+  console.log('Launching Chromium with Node...');
   const browser = await chromium.launch({
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
   });
   console.log('Browser launched.');
 
@@ -45,7 +45,6 @@ async function generatePdf() {
     console.log('Browser closed.');
   }
 }
-
 
 generatePdf().catch(err => {
   console.error('Error generating PDF:', err);

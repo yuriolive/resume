@@ -8,7 +8,7 @@
   "scripts": {
     "build": "bun run scripts/parse-resume.ts",
     "generate:site": "bun run scripts/generate-site.ts",
-    "generate:pdf": "bun run scripts/generate-pdf.ts"
+    "generate:pdf": "npx tsx scripts/generate-pdf.ts"
   },
   "dependencies": {
     "@jsonresume/core": "^0.1.0",
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^25.0.10",
-    "playwright": "^1.57.0"
+    "playwright": "^1.57.0",
+    "tsx": "^4.21.0"
   }
 }
