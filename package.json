@@ -9,7 +9,8 @@
     "build": "bun run scripts/parse-resume.ts",
     "generate:site": "bun run scripts/generate-site.ts",
     "generate:pdf": "npx tsx scripts/generate-pdf.ts",
-    "generate:all": "npm run build && npm run generate:site && npm run generate:pdf"
+    "generate:all": "npm run build && npm run generate:site && npm run generate:pdf",
+    "deploy": "wrangler pages deploy public"
   },
   "dependencies": {
     "@jsonresume/core": "^0.1.0",
@@ -24,6 +25,7 @@
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^25.0.10",
     "playwright": "^1.57.0",
-    "tsx": "^4.21.0"
+    "tsx": "^4.21.0",
+    "wrangler": "^3.105.0"
   }
 }
