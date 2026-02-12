@@ -1,7 +1,7 @@
 ---
 name: Yuri Olive
 label: Lead Data Engineer | AWS & Azure Certified | McKinsey Alumni
-email: "zit-kabob-bucked@duck.com"
+email: "yuriso1994@gmail.com"
 phone: ""
 url: https://yuriolive.com
 image: assets/profile-picture.jpg
@@ -34,9 +34,9 @@ skills:
   - name: Cloud
     keywords:
       [
-        AWS (Solutions Architect),
-        Microsoft Azure (Data Engineer),
-        Google Cloud Platform (GCP),
+        AWS,
+        Azure,
+        Google Cloud,
       ]
   - name: ML Frameworks & Tools
     keywords: [Kedro, Spark MLLib, LangGraph, LangChain]
@@ -48,7 +48,7 @@ skills:
     keywords: [Docker, Kubernetes, CI/CD]
 
 education:
-  - institution: UNICAMP - Universidade Estadual de Campinas
+  - institution: UNICAMP - Universidade Estadual de Campinas (ranked top 3 LatAm)
     area: BSc, Computer Engineering
     studyType: Bachelor
     startYear: 2013

@@ -299,7 +299,7 @@ const SkillItem = styled.div`
   }
 
   h4 {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 900;
     margin: 0 0 6px 0;
     text-transform: uppercase;
@@ -350,7 +350,7 @@ const MainSectionTitle = styled.h2`
 `;
 
 const WorkTitle = styled.h3`
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 900;
   text-transform: uppercase;
   margin: 0;
@@ -376,12 +376,12 @@ const ContentColumn = styled.div`
 `;
 
 const WorkDescription = styled.div`
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.5;
   color: #333;
 
   @media screen and (max-width: 768px) {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   p {
@@ -404,7 +404,7 @@ const HighlightsList = styled.ul`
 
   li {
     margin-bottom: 4px;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.4;
     color: #333;
     position: relative;
