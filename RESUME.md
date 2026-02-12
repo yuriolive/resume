@@ -45,7 +45,7 @@ skills:
   - name: Infrastructure
     keywords: [Terraform, GitHub Actions, CloudFormation]
   - name: Others
-    keywords: [Docker, Kubernetes, CI/CD, Prisma, Apollo GraphQL]
+    keywords: [Docker, Kubernetes, CI/CD]
 
 education:
   - institution: UNICAMP - Universidade Estadual de Campinas
@@ -68,11 +68,12 @@ certificates:
 
 _April 2023 – Present_
 
-- **Spearheaded** the redesign of legacy data pipelines using Meltano, Scrapy, and Airflow, resulting in **days** of reduction in infrastructure maintenance time and a **more than 60%** improvement in data reliability.
+- **Spearheaded** the redesign of legacy data pipelines using dockerized Meltano and Scrapy workflows running on Airflow, resulting in **days** of reduction in infrastructure maintenance time and improvement in data reliability.
 - **Architected** a custom data extraction solution for Slack to bypass 2FA and high-cost API limitations, saving the company **200k USD** per year in operational costs.
 - **Developed** a robust data pipeline for Survey Monkey Apply Resume collection, implementing request-bypass logic that successfully processed **tens of thousands** resumes without hitting service limits.
 - **Integrated** the Expert App and Grading Service databases into a centralized BigQuery warehouse, enabling 50+ internal stakeholders to access real-time performance metrics via dbt, improving training performance by **10%** and saving the company **more than 100k USD** per year in operational costs.
-- **Standardized** production environments by implementing Infrastructure-as-Code (Terraform) and CI/CD (GitHub Actions), which reduced deployment failure rates.
+- **Reduced** BigQuery costs by **more than 50%** by changing from on-demand pricing to auto-scaling slots and implementing custom logic in dbt to select the best slot for each query.
+- **Standardized** production environments by implementing Infrastructure-as-Code (Terraform), CI/CD (GitHub Actions), AI code reviews, cursor rules and Claude skills, which reduced deployment failure rates.
 
 ## Staff Data Engineer @ Authority.Org (authority.org)
 
