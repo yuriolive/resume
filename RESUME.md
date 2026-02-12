@@ -1,7 +1,7 @@
 ---
 name: Yuri Olive
 label: Lead Data Engineer | AWS & Azure Certified | McKinsey Alumni
-email: "yuriso1994@gmail.com"
+email: "morse-nutmeg-bash@duck.com"
 phone: ""
 url: https://yuriolive.com
 image: assets/profile-picture.jpg
@@ -57,7 +57,7 @@ education:
 certificates:
   - name: AWS Certified Solutions Architect – Associate
   - name: Azure Data Engineer Associate (Microsoft)
-  - name: Modernizing Data Lakes and Data Warehouses with GCP (Coursera)
+  - name: Modernizing Data Lakes and Data Warehouses with GCP
 
 # Experience will be parsed from the Markdown below
 ---

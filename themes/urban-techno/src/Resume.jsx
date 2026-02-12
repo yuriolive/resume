@@ -277,13 +277,13 @@ const SidebarSectionTitle = styled.h2`
   font-size: 13px;
   font-weight: 900;
   margin: 0;
-  padding: 10px 16px;
+  padding: 10px 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
 `;
 
 const SidebarContent = styled.div`
-  padding: 16px;
+  padding: 12px;
 
   @media screen and (max-width: 768px) {
     padding: 12px;
@@ -314,7 +314,7 @@ const StyledBadgeList = styled(BadgeList)`
 `;
 
 const StyledBadge = styled(Badge)`
-  font-size: 10px;
+  font-size: 8px;
   padding: 3px 6px;
   background: white;
   border: 1px solid #111;
@@ -430,7 +430,7 @@ const SimpleList = styled.div`
   line-height: 1.8;
 
   div {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 
     &:last-child {
       margin-bottom: 0;
@@ -580,6 +580,7 @@ function Resume({ resume }) {
     work = [],
     education = [],
     skills = [],
+    certificates = [],
     projects = [],
     volunteer = [],
     awards = [],
@@ -709,6 +710,22 @@ function Resume({ resume }) {
                     __html: parseMarkdown(basics.summary),
                   }}
                 />
+              </SidebarContent>
+            </SidebarSection>
+          )}
+
+          {certificates.length > 0 && (
+            <SidebarSection>
+              <SidebarSectionTitle>Certifications</SidebarSectionTitle>
+              <SidebarContent>
+                <SimpleList>
+                  {certificates.map((cert, index) => (
+                    <div key={index}>
+                      <strong>{cert.name}</strong>
+                      {cert.issuer && ` — ${cert.issuer}`}
+                    </div>
+                  ))}
+                </SimpleList>
               </SidebarContent>
             </SidebarSection>
           )}
